@@ -1,4 +1,6 @@
-package com.khalilknaissi.can_my_phone_be_trusted;
+package com.khalilknaissi.can_my_phone_be_trusted.ui;
+
+import com.khalilknaissi.can_my_phone_be_trusted.R;
 
 import android.os.Bundle;
 
@@ -22,3 +24,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
+
