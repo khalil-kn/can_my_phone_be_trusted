@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "can_my_phone_be_trusted"
 include(":app")
+include(":demo-threat")

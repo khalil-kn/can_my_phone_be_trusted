@@ -2,7 +2,11 @@ name: Android build
 
 on:
   push:
+    branches-ignore: [ci-screenshots]
   pull_request:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -42,3 +46,34 @@ jobs:
         with:
           name: app-debug
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      # Optional: walk through every screen on an emulator and save screenshots
+      # to the ci-screenshots branch. Runs when the commit message contains [screens].
+      - name: Enable KVM
+        if: contains(github.event.head_commit.message, '[screens]')
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Screenshots on an emulator
+        if: contains(github.event.head_commit.message, '[screens]')
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          arch: x86_64
+          target: google_apis
+          profile: pixel_5
+          disable-animations: true
+          script: python3 scripts/screens.py
+
+      - name: Publish screenshots
+        if: always() && contains(github.event.head_commit.message, '[screens]')
+        run: |
+          [ -d shots ] || exit 0
+          cd shots
+          git init -q
+          git checkout -q -b ci-screenshots
+          git add .
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "screens for ${GITHUB_SHA}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-screenshots
