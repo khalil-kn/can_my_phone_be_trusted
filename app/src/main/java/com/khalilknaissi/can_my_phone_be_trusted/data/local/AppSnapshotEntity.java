@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/** One row = one app as it was when the baseline was sealed. */
 @Entity(tableName = "app_snapshots")
 public class AppSnapshotEntity {
 
@@ -29,6 +30,25 @@ public class AppSnapshotEntity {
 
     @ColumnInfo(name = "captured_at")
     public long capturedAt;
+
+    // Added in Sprint 2 for deeper detection. Room fills these through the public fields.
+    public String installer;
+
+    @ColumnInfo(name = "first_install_time")
+    public long firstInstallTime;
+
+    @ColumnInfo(name = "last_update_time")
+    public long lastUpdateTime;
+
+    /** SHA-256 of the signing certificate. */
+    public String signer;
+
+    /** Granted dangerous permissions, comma-separated (READ_SMS,CAMERA). */
+    public String permissions;
+
+    /** Special access held, comma-separated (Accessibility service,Device admin). */
+    @ColumnInfo(name = "special_access")
+    public String specialAccess;
 
     public AppSnapshotEntity(@NonNull String packageName, String appLabel, String versionName,
                              long versionCode, boolean isSystemApp, long capturedAt) {
