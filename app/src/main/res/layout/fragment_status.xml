@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Status (home): the verdict field, the top incident or the baseline summary, and the Check button. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bone"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/slate">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="72dp">
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="64dp"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingEnd="4dp">
+
+                <TextView
+                    android:id="@+id/deviceName"
+                    style="@style/Body.Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white" />
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+
+                    <ImageButton
+                        android:id="@+id/btnBell"
+                        style="@style/IconBtn"
+                        android:contentDescription="Notifications"
+                        android:src="@drawable/ic_bell"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/bellBadge"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/badge"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <ImageButton
+                    android:id="@+id/btnSettings"
+                    style="@style/IconBtn"
+                    android:contentDescription="Settings"
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/verdict"
+                style="@style/Display.XL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:accessibilityHeading="true"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/sentence"
+                style="@style/Body.Lead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/meta"
+                style="@style/Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/on_dark_muted" />
+        </LinearLayout>
+
+        <!-- The tape. Whole when the seal holds, torn in two when an incident is open. -->
+        <TextView
+            android:id="@+id/tapeWhole"
+            style="@style/Tape"
+            android:layout_width="520dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="14dp"
+            android:rotation="-3"
+            android:translationX="-24dp" />
+
+        <TextView
+            android:id="@+id/tapeLeft"
+            style="@style/Tape"
+            android:layout_width="220dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:rotation="-5"
+            android:translationX="-20dp" />
+
+        <TextView
+            android:id="@+id/tapeRight"
+            style="@style/Tape"
+            android:layout_width="240dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="26dp"
+            android:rotation="-9"
+            android:translationX="220dp" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/btnCheck"
+            style="@style/BtnOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check"
+            app:icon="@drawable/ic_refresh" />
+
+        <Button
+            android:id="@+id/btnPrimary"
+            style="@style/Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

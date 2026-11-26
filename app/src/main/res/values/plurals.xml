@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- What a screen reader says for the badges on the bottom bar. -->
+    <plurals name="badge_changes">
+        <item quantity="one">%d change not reviewed</item>
+        <item quantity="other">%d changes not reviewed</item>
+    </plurals>
+    <plurals name="badge_incidents">
+        <item quantity="one">%d open incident</item>
+        <item quantity="other">%d open incidents</item>
+    </plurals>
+</resources>

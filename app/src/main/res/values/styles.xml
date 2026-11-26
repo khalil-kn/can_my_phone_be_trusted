@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Type and components from the design canvas (Foundations · Type, Components). -->
+<resources>
+    <!-- Bebas Neue display type: verdicts, titles, numbers. -->
+    <style name="Display">
+        <item name="android:fontFamily">@font/bebas_neue</item>
+        <item name="fontFamily">@font/bebas_neue</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingMultiplier">0.88</item>
+        <item name="android:textSize">44sp</item>
+    </style>
+    <style name="Display.XL"><item name="android:textSize">104sp</item></style>
+    <style name="Display.L"><item name="android:textSize">64sp</item></style>
+    <style name="Display.S"><item name="android:textSize">30sp</item></style>
+
+    <style name="Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+    <style name="Body.Bold"><item name="android:textStyle">bold</item></style>
+    <style name="Body.Lead">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Small">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+    </style>
+    <style name="Small.Muted"><item name="android:textColor">@color/muted</item></style>
+    <style name="Small.Bold"><item name="android:textStyle">bold</item></style>
+
+    <style name="Tiny">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/muted</item>
+    </style>
+
+    <style name="Mono">
+        <item name="android:fontFamily">@font/atkinson_mono</item>
+        <item name="fontFamily">@font/atkinson_mono</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <!-- Rounded panel, 28dp radius. -->
+    <style name="Card">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="CardList" parent="Card">
+        <item name="android:showDividers">middle</item>
+        <item name="android:divider">@drawable/divider</item>
+    </style>
+
+    <!-- Pill buttons, 56dp tall. -->
+    <style name="Btn" parent="Widget.Material3.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="backgroundTint">@color/ink</item>
+        <item name="android:textColor">@color/bone</item>
+    </style>
+    <style name="Btn.Tape">
+        <item name="backgroundTint">@color/tape</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+    <style name="Btn.Light">
+        <item name="backgroundTint">@color/bone</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+    <style name="BtnOutline" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="strokeColor">@color/ink</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="iconTint">@color/ink</item>
+    </style>
+    <style name="BtnText" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <!-- 48dp round icon button. -->
+    <style name="IconBtn">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- State pill: Open, Resolved... -->
+    <style name="Pill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/bg_pill</item>
+    </style>
+
+    <!-- The tape: mustard band with Bebas lettering. -->
+    <style name="Tape">
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@color/tape</item>
+        <item name="android:fontFamily">@font/bebas_neue</item>
+        <item name="fontFamily">@font/bebas_neue</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">18dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:importantForAccessibility">no</item>
+    </style>
+
+    <style name="BottomNavText" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">@font/atkinson</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/tape</item>
+    </style>
+</resources>

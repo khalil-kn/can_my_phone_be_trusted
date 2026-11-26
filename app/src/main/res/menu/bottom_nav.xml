@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_status" android:icon="@drawable/ic_status" android:title="Status" />
+    <item android:id="@+id/nav_changes" android:icon="@drawable/ic_changes" android:title="Changes" />
+    <item android:id="@+id/nav_timeline" android:icon="@drawable/ic_timeline" android:title="Timeline" />
+    <item android:id="@+id/nav_incidents" android:icon="@drawable/ic_incidents" android:title="Incidents" />
+    <item android:id="@+id/nav_reports" android:icon="@drawable/ic_reports" android:title="Reports" />
+</menu>

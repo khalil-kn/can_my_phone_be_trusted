@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The palette from the design canvas (Foundations · Colour). -->
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="bone">#E2DCCF</color>          <!-- screen ground -->
+    <color name="card">#EDE8DE</color>          <!-- panels and lists -->
+    <color name="sand">#D7D0C1</color>          <!-- tracks, chips, dividers -->
+    <color name="ink">#2A1110</color>           <!-- text, primary button -->
+    <color name="muted">#5E4741</color>         <!-- secondary text -->
+    <color name="seal_red">#DC1928</color>      <!-- seal broken, High, Critical -->
+    <color name="maroon">#952625</color>        <!-- changed values as text -->
+    <color name="tape">#E0A912</color>          <!-- the tape, nav indicator -->
+    <color name="slate">#3E6175</color>         <!-- seal intact, baseline values -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="on_dark_muted">#DDE1F3</color>
 </resources>

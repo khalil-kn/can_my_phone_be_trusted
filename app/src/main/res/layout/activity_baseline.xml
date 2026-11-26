@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Baseline in three states on one screen: review, recording, sealed. Java shows one group at a time. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bone">
+
+    <!-- 1. Review -->
+    <LinearLayout
+        android:id="@+id/groupReview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/reviewTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/Display.XL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:accessibilityHeading="true"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Seal it\nas it is" />
+
+                <TextView
+                    style="@style/Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Do this when you trust the phone right now, for example after a reset. Every later change is measured against it." />
+
+                <TextView
+                    android:id="@+id/reviewTape"
+                    style="@style/Tape"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="-20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="-20dp"
+                    android:rotation="-3" />
+
+                <TextView
+                    style="@style/Small.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:labelFor="@+id/name"
+                    android:paddingStart="20dp"
+                    android:text="Name this phone" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints="name"
+                    android:background="@drawable/bg_field"
+                    android:inputType="textCapWords"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/model"
+                    style="@style/Tiny"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:paddingStart="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Display.S"
+                        android:textSize="28sp"
+                        android:layout_width="0dp"
+                        android:layout_height="112dp"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/bg_tile_slate"
+                        android:padding="16dp"
+                        android:text="Apps"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        style="@style/Display.S"
+                        android:textSize="28sp"
+                        android:layout_width="0dp"
+                        android:layout_height="112dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:text="Access" />
+
+                    <TextView
+                        style="@style/Display.S"
+                        android:textSize="28sp"
+                        android:layout_width="0dp"
+                        android:layout_height="112dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tile_ink"
+                        android:padding="16dp"
+                        android:text="8 settings"
+                        android:textColor="@color/bone" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/reviewBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                style="@style/Small.Muted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:text="Takes about a minute. Keep the app open." />
+
+            <Button
+                android:id="@+id/btnRecord"
+                style="@style/Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Record baseline" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 2. Recording -->
+    <LinearLayout
+        android:id="@+id/groupScan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ink"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="72dp"
+        android:paddingEnd="20dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/Small.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recording your baseline"
+            android:textColor="@color/bone" />
+
+        <TextView
+            android:id="@+id/scanCount"
+            style="@style/Display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="0"
+            android:textColor="@color/tape"
+            android:textSize="200sp" />
+
+        <TextView
+            android:id="@+id/scanTotal"
+            style="@style/Display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bone" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/scanBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:indicatorColor="@color/tape"
+            app:trackColor="#3A2522"
+            app:trackCornerRadius="4dp"
+            app:trackThickness="44dp" />
+
+        <TextView
+            android:id="@+id/scanCurrent"
+            style="@style/Mono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="middle"
+            android:maxLines="1"
+            android:textColor="#B8A9A2" />
+    </LinearLayout>
+
+    <!-- 3. Sealed -->
+    <LinearLayout
+        android:id="@+id/groupDone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/slate">
+
+            <LinearLayout
+                android:id="@+id/doneTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingTop="40dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="76dp">
+
+                <TextView
+                    style="@style/Small.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Baseline recorded"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    style="@style/Display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:accessibilityHeading="true"
+                    android:text="Sealed"
+                    android:textColor="@color/white"
+                    android:textSize="128sp" />
+
+                <TextView
+                    android:id="@+id/sealedAt"
+                    style="@style/Body.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/doneTape"
+                style="@style/Tape"
+                android:layout_width="520dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="14dp"
+                android:rotation="-4"
+                android:translationX="-24dp" />
+        </FrameLayout>
+
+        <GridLayout
+            android:id="@+id/doneStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:columnCount="2" />
+
+        <TextView
+            android:id="@+id/doneNote"
+            style="@style/Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp" />
+        </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnGoStatus"
+            style="@style/Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Go to Status" />
+    </LinearLayout>
+</FrameLayout>

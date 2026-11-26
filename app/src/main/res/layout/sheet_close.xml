@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom sheet for closing an incident: how did it end? -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bone"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/sheetTitle"
+        style="@style/Display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
+        android:textSize="48sp" />
+
+    <TextView
+        style="@style/Small.Muted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="How did it end? Saved with the incident and printed on reports." />
+
+    <RadioGroup
+        android:id="@+id/outcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <RadioButton
+            android:id="@+id/outResolved"
+            style="@style/Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/ink"
+            android:checked="true"
+            android:minHeight="64dp"
+            android:text="Resolved\nSomething was wrong and it's dealt with." />
+
+        <RadioButton
+            android:id="@+id/outFalse"
+            style="@style/Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/ink"
+            android:minHeight="64dp"
+            android:text="False positive\nNothing was wrong. A normal change was flagged." />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/sheetConfirm"
+        style="@style/Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mark resolved" />
+
+    <Button
+        android:id="@+id/sheetCancel"
+        style="@style/BtnText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
+</LinearLayout>
